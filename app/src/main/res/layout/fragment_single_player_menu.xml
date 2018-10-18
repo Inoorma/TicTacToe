@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".activities.MenuActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h0.3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h0.5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h0.7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/single_b_easy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="@dimen/_36sdp"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingRight="@dimen/_36sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h0.3"
+        fancy:fb_borderColor="@color/blue_malibu"
+        fancy:fb_borderWidth="@dimen/_2sdp"
+        fancy:fb_defaultColor="@color/blue_malibu"
+        fancy:fb_focusColor="@color/blue_malibu"
+        fancy:fb_iconPosition="left"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="@string/diff_easy"
+        fancy:fb_textColor="@color/white_alabaster"
+        fancy:fb_textSize="@dimen/_15ssp" />
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/single_b_medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="@dimen/_36sdp"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingRight="@dimen/_36sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h0.5"
+        fancy:fb_borderColor="@color/blue_malibu"
+        fancy:fb_borderWidth="@dimen/_2sdp"
+        fancy:fb_defaultColor="@color/blue_malibu"
+        fancy:fb_focusColor="@color/blue_malibu"
+        fancy:fb_iconPosition="left"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="@string/diff_med"
+        fancy:fb_textColor="@color/white_alabaster"
+        fancy:fb_textSize="@dimen/_15ssp" />
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/single_b_hard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="@dimen/_36sdp"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingRight="@dimen/_36sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h0.7"
+        fancy:fb_borderColor="@color/blue_malibu"
+        fancy:fb_borderWidth="@dimen/_2sdp"
+        fancy:fb_defaultColor="@color/blue_malibu"
+        fancy:fb_focusColor="@color/blue_malibu"
+        fancy:fb_iconPosition="left"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="@string/diff_hard"
+        fancy:fb_textColor="@color/white_alabaster"
+        fancy:fb_textSize="@dimen/_15ssp" />
+
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/single_b_easy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        fancy:srcCompat="@drawable/header_difficulty" />
+
+</android.support.constraint.ConstraintLayout>

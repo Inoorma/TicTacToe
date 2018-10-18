@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FAFAFA</color>
+    <color name="colorPrimaryDark">#2C3A47</color>
+    <color name="colorAccent">#27ae60</color>
+
+    <color name="white_alabaster">#FAFAFA</color>
+    <color name="blue_malibu">#1CA8FC</color>
+    <color name="bright_gray">#353b48</color>
+</resources>

@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Tic-Tac-Toe</string>
+
+    #Menu
+    <string name="play_one_player">Single player</string>
+    <string name="play_two_player">Multi-player</string>
+
+    #Difficulty
+    <string name="diff_easy">Easy</string>
+    <string name="diff_med">Medium</string>
+    <string name="diff_hard">Impossible</string>
+
+    #Tile values
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+
+    #Game Activity
+    <string name="play_again">Play again</string>
+    <string name="main_menu">Main menu</string>
+    <string name="player_one">Player 1</string>
+    <string name="turn_cross">Player 1 turn</string>
+    <string name="turn_naught">Player 2 turn</string>
+    <string name="turn_ai">Calculating next move…</string>
+    <string name="win_cross">Player one wins!</string>
+    <string name="win_naught">Player two wins!</string>
+    <string name="draw">Draw!</string>
+</resources>

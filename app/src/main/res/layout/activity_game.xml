@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_alabaster">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h0.2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h0.8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+
+    <TextView
+        android:id="@+id/game_tv_crossPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/player_one"
+        android:textColor="@color/blue_malibu"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/game_iv_crossImage"
+        app:layout_constraintStart_toStartOf="@+id/game_iv_crossImage"
+        app:layout_constraintTop_toBottomOf="@+id/game_iv_crossImage" />
+
+    <TextView
+        android:id="@+id/game_tv_naughtPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/bright_gray"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/game_iv_naughtImage"
+        app:layout_constraintStart_toStartOf="@+id/game_iv_naughtImage"
+        app:layout_constraintTop_toBottomOf="@+id/game_iv_naughtImage" />
+
+    <ImageView
+        android:id="@+id/game_iv_leftVert"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h0.8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h0.2"
+        android:src="@drawable/vert_line" />
+
+    <ImageView
+        android:id="@+id/game_iv_rightVert"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h0.8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.67"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h0.2"
+        android:src="@drawable/vert_line" />
+
+    <ImageView
+        android:id="@+id/game_iv_topHoriz"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"
+        android:src="@drawable/hori_line" />
+
+    <ImageView
+        android:id="@+id/game_iv_bottomHoriz"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        android:src="@drawable/hori_line" />
+
+    <ImageView
+        android:id="@+id/game_iv_topLeft"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:tag="@string/zero"
+        app:layout_constraintBottom_toBottomOf="@+id/game_iv_topCentre"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/game_iv_middleLeft"
+        app:layout_constraintStart_toStartOf="@+id/game_iv_middleLeft"
+        app:layout_constraintTop_toTopOf="@+id/game_iv_topCentre"
+        android:src="@android:color/transparent" />
+
+    <ImageView
+        android:id="@+id/game_iv_topCentre"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:tag="@string/one"
+        app:layout_constraintBottom_toTopOf="@+id/game_iv_topHoriz"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/game_iv_rightVert"
+        app:layout_constraintStart_toEndOf="@+id/game_iv_leftVert"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h0.2"
+        android:src="@android:color/transparent" />
+
+    <ImageView
+        android:id="@+id/game_iv_topRight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:tag="@string/two"
+        app:layout_constraintBottom_toBottomOf="@+id/game_iv_topCentre"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/game_iv_middleRight"
+        app:layout_constraintStart_toStartOf="@+id/game_iv_middleRight"
+        app:layout_constraintTop_toTopOf="@+id/game_iv_topCentre"
+        android:src="@android:color/transparent" />
+
+    <ImageView
+        android:id="@+id/game_iv_middleLeft"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:tag="@string/three"
+        app:layout_constraintBottom_toTopOf="@+id/game_iv_bottomHoriz"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/game_iv_leftVert"
+        app:layout_constraintStart_toStartOf="@+id/game_iv_topHoriz"
+        app:layout_constraintTop_toBottomOf="@+id/game_iv_topHoriz"
+        android:src="@android:color/transparent" />
+
+    <ImageView
+        android:id="@+id/game_iv_middleCentre"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:tag="@string/four"
+        app:layout_constraintBottom_toTopOf="@+id/game_iv_bottomHoriz"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/game_iv_rightVert"
+        app:layout_constraintStart_toEndOf="@+id/game_iv_leftVert"
+        app:layout_constraintTop_toBottomOf="@+id/game_iv_topHoriz"
+        android:src="@android:color/transparent" />
+
+    <ImageView
+        android:id="@+id/game_iv_middleRight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:tag="@string/five"
+        app:layout_constraintBottom_toTopOf="@+id/game_iv_bottomHoriz"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/game_iv_topHoriz"
+        app:layout_constraintStart_toEndOf="@+id/game_iv_rightVert"
+        app:layout_constraintTop_toBottomOf="@+id/game_iv_topHoriz"
+        android:src="@android:color/transparent" />
+
+    <ImageView
+        android:id="@+id/game_iv_bottomCentre"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:tag="@string/seven"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h0.8"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/game_iv_rightVert"
+        app:layout_constraintStart_toEndOf="@+id/game_iv_leftVert"
+        app:layout_constraintTop_toBottomOf="@+id/game_iv_bottomHoriz"
+        android:src="@android:color/transparent" />
+
+    <ImageView
+        android:id="@+id/game_iv_bottomLeft"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:tag="@string/six"
+        app:layout_constraintBottom_toBottomOf="@+id/game_iv_bottomCentre"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/game_iv_middleLeft"
+        app:layout_constraintStart_toStartOf="@+id/game_iv_middleLeft"
+        app:layout_constraintTop_toTopOf="@+id/game_iv_bottomCentre"
+        android:src="@android:color/transparent" />
+
+    <ImageView
+        android:id="@+id/game_iv_bottomRight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:tag="@string/eight"
+        app:layout_constraintBottom_toBottomOf="@+id/game_iv_bottomCentre"
+        app:layout_constraintEnd_toEndOf="@+id/game_iv_middleRight"
+        app:layout_constraintStart_toStartOf="@+id/game_iv_middleRight"
+        app:layout_constraintTop_toTopOf="@+id/game_iv_bottomCentre"
+        android:src="@android:color/transparent" />
+
+    <ImageView
+        android:id="@+id/game_iv_crossImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@null"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/game_iv_topLeft"
+        app:layout_constraintStart_toStartOf="@+id/game_iv_topLeft"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@android:color/transparent"
+        tools:srcCompat="@drawable/cross" />
+
+    <ImageView
+        android:id="@+id/game_iv_naughtImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@null"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/game_iv_topRight"
+        app:layout_constraintStart_toStartOf="@+id/game_iv_topRight"
+        app:layout_constraintTop_toTopOf="@+id/game_iv_crossImage"
+        android:src="@android:color/transparent"
+        tools:srcCompat="@drawable/naught" />
+
+    <TextView
+        android:id="@+id/game_tv_crossScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/blue_malibu"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/game_iv_crossImage"
+        app:layout_constraintStart_toStartOf="@+id/game_iv_crossImage"
+        app:layout_constraintTop_toBottomOf="@+id/game_tv_crossPlayer" />
+
+    <TextView
+        android:id="@+id/game_tv_naughtScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/bright_gray"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/game_iv_naughtImage"
+        app:layout_constraintStart_toStartOf="@+id/game_iv_naughtImage"
+        app:layout_constraintTop_toBottomOf="@+id/game_tv_naughtPlayer" />
+
+    <TextView
+        android:id="@+id/game_tv_mainMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/main_menu"
+        android:textColor="@color/blue_malibu"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/game_iv_naughtImage"
+        app:layout_constraintEnd_toStartOf="@+id/game_iv_naughtImage"
+        app:layout_constraintStart_toEndOf="@+id/game_iv_crossImage" />
+
+    <TextView
+        android:id="@+id/game_tv_gameStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/turn_cross"
+        android:textColor="@color/blue_malibu"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game_iv_rightVert" />
+
+    <TextView
+        android:id="@+id/game_tv_playAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/play_again"
+        android:textColor="@color/blue_malibu"
+        android:textSize="@dimen/_13ssp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/game_tv_mainMenu"
+        app:layout_constraintEnd_toStartOf="@+id/game_iv_naughtImage"
+        app:layout_constraintStart_toEndOf="@+id/game_iv_crossImage"
+        app:layout_constraintTop_toTopOf="@+id/game_iv_naughtImage" />
+
+</android.support.constraint.ConstraintLayout>
