@@ -2,6 +2,10 @@ package com.inoorma.tic_tac_toe.models
 
 import kotlin.math.min
 
+/**
+ * Board class representing the game board with specified dimensions
+ */
+
 class Board(val height: Int, val width: Int) {
 
     var board: Array<IntArray> = Array(height) { IntArray(width) { DEFAULT } }
@@ -20,6 +24,10 @@ class Board(val height: Int, val width: Int) {
     var emptyTiles = height * width
     var lastMove = IntArray(2)
 
+    /**
+     * Change the tile at the coordinates specified
+     */
+
     fun setTile(x: Int, y: Int, value: Int) {
         if (isEmpty(x, y)) {
             board[x][y] = value
@@ -29,14 +37,26 @@ class Board(val height: Int, val width: Int) {
         }
     }
 
+    /**
+     * Check if a tile is empty on the board
+     */
+
     fun isEmpty(x: Int, y: Int): Boolean {
         return board[x][y] == 0
     }
+
+    /**
+     * Remove the last tile entered
+     */
 
     fun removeLastTile() {
         board[lastMove[0]][lastMove[1]] = DEFAULT
         emptyTiles++
     }
+
+    /**
+     * @return array of empty board tile
+     */
 
     fun getValidMoves(): Array<IntArray> {
         var index = 0
@@ -53,6 +73,10 @@ class Board(val height: Int, val width: Int) {
         return validMoves
     }
 
+    /**
+     * Update the game state by consider the last move made
+     */
+
     private fun updateGameState(x: Int, y: Int) {
         checkRow(x)
         checkCol(y)
@@ -64,6 +88,10 @@ class Board(val height: Int, val width: Int) {
         }
     }
 
+    /**
+     * Check a specified row for a winner
+     */
+
     private fun checkRow(x: Int): Int {
         var score = 0
         for (y in 0 until width) {
@@ -72,6 +100,10 @@ class Board(val height: Int, val width: Int) {
         isWinner(score)
         return score
     }
+
+    /**
+     * Check a specified column for a winner
+     */
 
     private fun checkCol(y: Int): Int{
         var score = 0
@@ -82,7 +114,11 @@ class Board(val height: Int, val width: Int) {
         return score
     }
 
-     private fun checkDiag(): IntArray {
+    /**
+     * Check the diagonals (main and anti) for a winner
+     */
+
+    private fun checkDiag(): IntArray {
         var scoreMain = 0
         var scoreAnti = 0
         for (i in 0 until width) {
@@ -94,6 +130,10 @@ class Board(val height: Int, val width: Int) {
         return intArrayOf(scoreMain, scoreAnti)
     }
 
+    /**
+     * Checks a score to verify if there is a winner
+     */
+
     private fun isWinner(score: Int) {
         if (score == CROSS_WIN_SCORE) {
             gameState = GameState.CROSS_WIN
@@ -102,6 +142,10 @@ class Board(val height: Int, val width: Int) {
         }
     }
 
+    /**
+     * Check if the game is still playable (i.e there are no winners and the game is not drawn
+     */
+
     fun isPlaying(): Boolean {
         return gameState == GameState.PLAYING
     }
@@ -109,6 +153,10 @@ class Board(val height: Int, val width: Int) {
     fun isDrawn(): Boolean {
         return gameState == GameState.DRAW
     }
+
+    /**
+     * Creates a copy of the current board
+     */
 
     fun copy() : Board {
         val boardCopy = Board(height, width)

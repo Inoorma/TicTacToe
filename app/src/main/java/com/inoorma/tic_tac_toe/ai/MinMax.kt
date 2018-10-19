@@ -3,15 +3,23 @@ package com.inoorma.tic_tac_toe.ai
 import android.util.Log
 import com.inoorma.tic_tac_toe.activities.GameActivity
 import com.inoorma.tic_tac_toe.models.Board
-import com.inoorma.tic_tac_toe.models.Player
+import com.inoorma.tic_tac_toe.players.Player
 import java.util.*
 import kotlin.collections.ArrayList
 
+/**
+ * Player choose moves based on a MinMax algorithm
+ */
 class MinMax (private val player: Player, difficulty: Player.Difficulty) {
 
     companion object {
-        private const val MEDIUM_DEPTH = 1
+        private const val MEDIUM_DEPTH = 2
     }
+
+    /**
+     * Medium difficulty: Takes into consideration the next two moves
+     * Hard difficulty: Takes into consideration all possible moves
+     */
 
     private val maxDepth: Int = if (difficulty == Player.Difficulty.MEDIUM) {
         MEDIUM_DEPTH
@@ -23,8 +31,9 @@ class MinMax (private val player: Player, difficulty: Player.Difficulty) {
         val validMoves = board.getValidMoves()
         var score = Int.MIN_VALUE
         var choice = IntArray(validMoves[0].size)
-        val depth = 0
+        val depth = 1
 
+        //Starting case; make the first move
         if (board.emptyTiles >= board.width * board.height - 1) {
             choice = if (board.isEmpty(board.width / 2, board.height / 2)) {
                 intArrayOf(board.width / 2, board.height / 2)
@@ -36,6 +45,7 @@ class MinMax (private val player: Player, difficulty: Player.Difficulty) {
                     intArrayOf(board.width - 1, board.height - 1)
                 }
             }
+        //Otherwise, apply Min-Max Theorem
         } else {
             for (validMove in validMoves) {
                 board.setTile(validMove[0], validMove[1], player.playerID)
@@ -45,6 +55,7 @@ class MinMax (private val player: Player, difficulty: Player.Difficulty) {
                     break
                 }
 
+                //create a new list for valid moves
                 val newMoveList = ArrayList<IntArray>()
                 newMoveList.addAll(validMoves)
                 newMoveList.remove(validMove)
@@ -55,12 +66,21 @@ class MinMax (private val player: Player, difficulty: Player.Difficulty) {
                     score = curScore
                     choice = validMove
                 }
+                //Undo move
                 board.removeLastTile()
             }
         }
         return choice
     }
 
+    /**
+     * Minimise the possibility of the worst case loss by evaluating moves based on a score.
+     * To achieve a winning move sooner, branch nodes are given a higher score than left nodes
+     * @param validMoveList list of empty tiles
+     * @param board copy of the board
+     * @param depth the number of moves already consider
+     * @returns score evaluated based on valid moves
+     */
     private fun minimiseScore(validMoveList: List<IntArray>, board: Board, depth: Int): Int {
         var score = Int.MAX_VALUE
         if (validMoveList.size == 1) {
@@ -100,6 +120,14 @@ class MinMax (private val player: Player, difficulty: Player.Difficulty) {
         }
         return score
     }
+
+    /**
+     * Maximise the possibility of the best case scenario by evaluating moves baed on a score
+     * @param validMoveList list of empty tiles
+     * @param board copy of the board
+     * @param depth the number of moves already consider
+     * @return score evaluated based on valid moves
+     */
 
     private fun maximiseScore(validMoveList: List<IntArray>, board: Board, depth: Int): Int {
         var score = Int.MIN_VALUE

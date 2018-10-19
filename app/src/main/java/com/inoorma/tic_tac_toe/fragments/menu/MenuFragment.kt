@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.inoorma.tic_tac_toe.R
-import com.inoorma.tic_tac_toe.models.Player
+import com.inoorma.tic_tac_toe.players.Player
 import kotlinx.android.synthetic.main.fragment_menu.*
 
 class MenuFragment : BaseMenuFragment(), View.OnClickListener {

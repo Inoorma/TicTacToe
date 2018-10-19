@@ -6,7 +6,7 @@ import android.content.Intent
 import android.support.v4.app.Fragment
 import com.inoorma.tic_tac_toe.R
 import com.inoorma.tic_tac_toe.activities.GameActivity
-import com.inoorma.tic_tac_toe.models.Player
+import com.inoorma.tic_tac_toe.players.Player
 
 abstract class BaseMenuFragment : Fragment() {
 

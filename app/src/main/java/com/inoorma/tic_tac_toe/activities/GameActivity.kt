@@ -12,7 +12,7 @@ import com.inoorma.tic_tac_toe.players.HumanPlayer
 import com.inoorma.tic_tac_toe.players.MediumAI
 import com.inoorma.tic_tac_toe.R
 import com.inoorma.tic_tac_toe.models.Board
-import com.inoorma.tic_tac_toe.models.Player
+import com.inoorma.tic_tac_toe.players.Player
 import kotlinx.android.synthetic.main.activity_game.*
 
 class GameActivity : AppCompatActivity(), View.OnClickListener {
@@ -42,6 +42,9 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         initUI()
     }
 
+    /**
+     * Initialise onClickListeners
+     */
     private fun initListeners() {
         for (gridButton in gridButtons) {
             gridButton.setOnClickListener(this)
@@ -58,6 +61,10 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    /**
+     * Initialise opposition player
+     */
+
     private fun initGameSettings(gameType: Player.Difficulty) {
         if (gameType != Player.Difficulty.HUMAN) {
             aiGame = true
@@ -70,11 +77,19 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    /**
+     * Initial update for UI
+     */
+
     private fun initUI() {
         game_tv_crossScore.text = crossScore.toString()
         game_tv_naughtPlayer.text = naughtPlayer.name
         game_tv_naughtScore.text = naughtScore.toString()
     }
+
+    /**
+     * Listener for board buttons
+     */
 
     override fun onClick(v: View?) {
         if ((turn == Board.CROSS || !aiGame) && board.isPlaying()) {
@@ -93,11 +108,19 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    /**
+     * Converts 1d value to 2d grid coordinates
+     */
+
     private fun tagToPos(tag: Int): IntArray {
         val x = tag / 3
         val y = tag % 3
         return intArrayOf(x, y)
     }
+
+    /**
+     * turn is taken; update which player takes the next turn
+     */
 
     private fun turnTaken() {
         if (board.isPlaying()) {
@@ -105,10 +128,12 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
                 Board.CROSS -> turn = Board.NAUGHT
                 Board.NAUGHT -> turn = Board.CROSS
             }
-        } else {
-            updateScores()
         }
     }
+
+    /**
+     * calculate the AI move and update the board
+     */
 
     private fun chooseAIMove() {
         game_tv_gameStatus.text = resources.getString(R.string.turn_ai)
@@ -117,11 +142,19 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         updateUI(choice[0], choice[1], Board.NAUGHT)
     }
 
+    /**
+     * Update UI when a turn is taken
+     */
+
     private fun updateUI(x: Int, y: Int, turn: Int) {
         updateBoardUI(x, y, turn)
         updateTextViews()
         turnTaken()
     }
+
+    /**
+     * Update board UI when a turn is taken
+     */
 
     private fun updateBoardUI(x: Int, y: Int, turn: Int) {
         val pos = 3 * x + y
@@ -147,11 +180,13 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
                 game_tv_gameStatus.text = resources.getString(R.string.win_cross)
                 game_tv_playAgain.visibility = View.VISIBLE
                 crossScore++
+                updateScores()
             }
             Board.GameState.NAUGHT_WIN -> {
                 game_tv_gameStatus.text = resources.getString(R.string.win_naught)
                 game_tv_playAgain.visibility = View.VISIBLE
                 naughtScore++
+                updateScores()
             }
             Board.GameState.DRAW -> {
                 game_tv_gameStatus.text = resources.getString(R.string.draw)
@@ -177,6 +212,10 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         game_tv_crossScore.text = crossScore.toString()
         game_tv_naughtScore.text = naughtScore.toString()
     }
+
+    /**
+     * Consider which player starts
+     */
 
     private fun updateFirstTurn() {
         if (crossStart) {
